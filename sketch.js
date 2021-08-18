@@ -70,6 +70,12 @@ function draw() {
       jumpSound.play();
       kangaroo.velocityY = -16;
     }
+
+    if(kangaroo.isTouching(shrubsGroup)){
+      score = score+1
+    }
+
+    
   
     kangaroo.velocityY = kangaroo.velocityY + 0.8
     spawnShrubs();
@@ -101,10 +107,22 @@ function draw() {
     shrubsGroup.setLifetimeEach(-1);
     
   }
-
   
   drawSprites();
 
+  textSize(20);
+    stroke(3);
+    fill("black");
+    text("Score: "+ score,camera.position.x,50);
+
+  if (score >= 5){
+    kangaroo.visible = false;
+    textSize(30);
+    stroke(3);
+    fill("black");
+    text("Congratulations!!! You win the game!!",70,200);
+    gameState = END
+  }
 
 }
 
