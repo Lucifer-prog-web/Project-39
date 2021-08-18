@@ -175,4 +175,4 @@ function spawnObstacles() {
     obstaclesGroup.add(obstacle);
     
   }
-}
+} 
